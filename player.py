@@ -24,10 +24,10 @@ class Player(Turtle):
         self.radians()
         self.seth(0)
         
-        self.step_size = self.mult * 5
-        self.turn_size = pi / 25
+        self.step_size = self.mult * PLAYER_SPEED
+        self.turn_size = PLAYER_TURN_SPEED * pi / 180
         self.fireTime = -1
-        self.health = 3
+        self.health = PLAYER_HEALTH
         self.radius = 30
         
         self.name = name
