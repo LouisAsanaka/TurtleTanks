@@ -11,6 +11,8 @@ PLAYER_TURN_SPEED = 8
 PLAYER_HEALTH = 3
 # Rate at which tanks can fire (in seconds)
 FIRE_RATE = 0.8
+# Speed of the bullet (only set it between 5 to 18)
+BULLET_SPEED = 14
 # -----------------------------------------------------
 # Don't touch these!
 BORDER = WINDOW_SIZE / 2
