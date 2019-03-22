@@ -2,11 +2,10 @@ from turtle import Turtle
 from constants import *
 
 from math import sin, cos
-import time
 
 class Bullet(Turtle):
     
-    def __init__(self, x, y, heading, dt, obstacles, owner):
+    def __init__(self, x, y, heading, obstacles, owner):
         Turtle.__init__(self)
         
         self.speed(0)
@@ -19,8 +18,6 @@ class Bullet(Turtle):
         
         self.step_size = 10
         self.radius = 5
-        self.strength = dt * 1.8
-        self.start_time = time.time()
         self.obstacles = obstacles
         self.owner = owner
         self.alive = True
@@ -40,11 +37,7 @@ class Bullet(Turtle):
         
     def update(self):
         if not self.isvisible() or not self.alive:
-            return
-        #if (time.time() - self.start_time) > self.strength:
-        #    self.hideturtle()
-        #    return True
-        
+            return        
         if not self.has_collided():
             angle = self.heading()
             self.setx(self.xcor() + self.step_size * cos(angle))

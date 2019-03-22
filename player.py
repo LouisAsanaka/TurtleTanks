@@ -77,8 +77,8 @@ class Player(Turtle):
             self.health -= 1
             return False
     
-    def fire(self, dt):
-        Bullet(self.xcor(), self.ycor(), self.heading() if self.name is "p1" else self.heading() + pi, dt, self.obstacles, self.name)
+    def fire(self):
+        Bullet(self.xcor(), self.ycor(), self.heading() if self.name is "p1" else self.heading() + pi, self.obstacles, self.name)
             
     def update(self):
         # Handle keyboard input
@@ -95,7 +95,12 @@ class Player(Turtle):
         if self.kb.is_pressed(self.name, "fire"):
             if self.fireTime == -1:
                 self.fireTime = time.time()
-        elif self.fireTime != -1:
-            self.fire(time.time() - self.fireTime)
-            self.fireTime = -1
+                self.fire()
+            elif self.fireTime != -1:
+                dt = time.time() - self.fireTime
+                if dt < FIRE_RATE:
+                    return
+                self.fireTime = time.time()
+                self.fire()
+                
             

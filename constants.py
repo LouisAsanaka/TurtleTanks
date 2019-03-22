@@ -6,9 +6,11 @@ WINDOW_SIZE = 700
 # Pixels per milliseconds
 PLAYER_SPEED = 5
 # Degrees per milliseconds
-PLAYER_TURN_SPEED = 10
-# Player health (# of hits)
+PLAYER_TURN_SPEED = 8
+# Player health (# of hits player can take)
 PLAYER_HEALTH = 3
+# Rate at which tanks can fire (in seconds)
+FIRE_RATE = 0.8
 # -----------------------------------------------------
 # Don't touch these!
 BORDER = WINDOW_SIZE / 2
