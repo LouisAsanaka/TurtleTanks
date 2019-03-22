@@ -78,7 +78,7 @@ class Player(Turtle):
             return False
     
     def fire(self, dt):
-        Bullet(self.xcor(), self.ycor(), self.heading() if self.name is "p1" else self.heading() + pi, dt, self.obstacles)
+        Bullet(self.xcor(), self.ycor(), self.heading() if self.name is "p1" else self.heading() + pi, dt, self.obstacles, self.name)
             
     def update(self):
         # Handle keyboard input

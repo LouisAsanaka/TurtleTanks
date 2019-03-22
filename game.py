@@ -115,14 +115,18 @@ def create_players(game_arena):
 score = ScoreTurtle()
 def draw():
     for entity in screen.turtles():
-        if isinstance(entity, Bullet) and entity.update() is not None:
+        if isinstance(entity, Bullet) and entity.alive and entity.update() is None:
             gameover = False
             winner = None
-            if entity.distance(player_1) <= (player_1.radius + entity.radius + 5):
+            if entity.distance(player_1) <= (player_1.radius + entity.radius) and entity.owner is not "p1":
+                entity.alive = False
+                entity.hideturtle()
                 gameover = player_1.hit()
                 if gameover:
                     winner = "blue"
-            elif entity.distance(player_2) <= (player_2.radius + entity.radius + 5):
+            elif entity.distance(player_2) <= (player_2.radius + entity.radius) and entity.owner is not "p2":
+                entity.alive = False
+                entity.hideturtle()
                 gameover = player_2.hit()
                 if gameover:
                     winner = "red"
